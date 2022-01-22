@@ -1,0 +1,40 @@
+{% extends 'customer/customerbase.html' %}
+{% block title %}
+orderpage
+{% endblock %}
+{% block head %}
+order details
+{% endblock %}
+{% block data %}
+<table border="2">
+    <tr>
+        <th>Food</th><th>Quantity</th><th>price</th>
+    </tr>
+    {% for f in orders %}
+    <tr>
+        <td>{{f.fname}}</td><td>{{f.quantity}}</td><td>{{f.price}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+<div style="margin-left:500px;background-color:green;">
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Recepients Email Id</td><td><input type="email" name="mailid"></td>
+        </tr>
+        <tr>
+            <td>Subject</td><td><input type="text" name="subj"></td>
+        </tr>
+        <tr>
+            <td>Message</td><td><input type="text" name="msg"></td>
+        </tr>
+        <tr><td></td><td><input type="submit" value="send"></td></tr>
+    </table>
+</form>
+</div>
+{% endblock %}

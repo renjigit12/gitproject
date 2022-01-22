@@ -1,0 +1,25 @@
+{% extends 'customer/customerbase.html' %}
+
+{% block data %}
+<form action="/viewemp/" method="post">
+    {% csrf_token %}
+     <input type="search" name="dept">
+    <input type="submit" value="Search">
+</form>
+
+{% for user in data1 %}
+<table>
+    <tr><th>Employee Name</th><td>{{user.emp_name}}"</td></tr>
+    <tr><th>Email</th><td>{{user.emp_email}}</td></tr>
+    <tr><th>Phone</th><td>{{user.emp_ph}}</td></tr>
+    <tr><th>Department</th><td>{{user.emp_dept}}</td></tr>
+</table>
+<br><br>
+{% endfor %}
+<form action="/msgpage/" method="post">
+    {% csrf_token %}
+    <input type="text" value="{{deptmnt}}">
+    <input type="submit" value="Sendmail">
+</form>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends 'customer/customerbase.html' %}
+{% block title %}
+menu
+{% endblock %}
+{% block head %}
+Menu details
+{% endblock %}
+{% block data %}
+<form action="/viewmenu/" method="post">
+    {% csrf_token %}
+     <input type="search" name="cat">
+    <input type="submit" value="Search">
+</form>
+<table>
+    <tr><th>Name</th><th>Category</th><th>Price</th></tr>
+    {% for f in food %}
+    <tr><td>{{f.name}}</td><td>{{f.category}}</td><td>{{f.price}}</td>
+
+    <td>
+            <form action="/foodorder/" method="post">
+                {% csrf_token %}
+                <input type="text" name="fname" value="{{f.name}}" hidden>
+                <input type="number" name="price" value="{{f.price}}" hidden>
+                Quantity:<input type="number" name="qnt">
+                <input type="submit" value="Buy Now">
+            </form>
+    </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

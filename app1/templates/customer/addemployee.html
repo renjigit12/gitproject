@@ -1,0 +1,16 @@
+{% extends 'admin/adminbase.html' %}
+{% block title %}
+Add Employee
+{% endblock %}
+{% block head %}
+Add Employee Details
+{% endblock %}
+{% block data %}
+<form action="/employeedb/" method="post">
+    {% csrf_token %}
+    <table>
+        {{formdata.as_table}}
+        <tr><td></td><td><input type="submit" value="Add Employee"></td></tr>
+    </table>
+</form>
+{% endblock %}

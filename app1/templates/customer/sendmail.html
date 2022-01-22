@@ -1,0 +1,16 @@
+
+{% extends 'customer/customerbase.html' %}
+
+{% block data %}
+<form action="/sendmail/" method="post">
+    {% csrf_token %}
+
+
+        <tr><td>Subject</td><td><input type="text" name="subj" ></td></tr><br>
+        <tr><td>Message</td><td><input type="text" name="msg" ></td></tr><br>
+
+        <input type="submit" value="send">
+
+
+</form>
+{% endblock %}

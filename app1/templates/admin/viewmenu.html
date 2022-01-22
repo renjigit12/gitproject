@@ -1,0 +1,31 @@
+{% extends 'admin/adminbase.html' %}
+{% block title %}
+Menu Details
+{% endblock %}
+{% block head %}
+Menu details
+{% endblock %}
+{% block data %}
+{% if msg %}
+<center><h2><font color="red">item deleted</font></h2></center>
+{% endif %}
+
+<table border="2">
+    <tr><th>Name</th><th>Category</th><th>Price</th></tr>
+    {% for item in items %}
+
+    <tr><td>{{item.name}}</td><td>{{item.category}}</td><td>{{item.price}}</td>
+    <!--<form action="/adviewmenu/" method="post">
+
+        {% csrf_token %}
+        <td><th><input type="number" value="{{item.id}}" name="fid"></th>
+        <input type="submit" value="delete"></td>
+    </form>-->
+</table>
+
+
+
+{% endfor %}
+
+{% endblock %}
+

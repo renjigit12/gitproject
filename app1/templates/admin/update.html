@@ -1,0 +1,14 @@
+{% extends 'admin/adminbase.html' %}
+{% block title %}
+update
+{% endblock %}
+{% block head %}
+update details
+{% endblock %}
+{% block data %}
+<form action="/updateemail/" method="post">
+    <p>new email:<input type="email" name="emid"></p>
+    <input type="submit" value="update email">
+</form>
+
+{% endblock %}
